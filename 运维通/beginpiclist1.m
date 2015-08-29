@@ -6,12 +6,12 @@
 //  Copyright (c) 2015年 南江. All rights reserved.
 //
 
-#import "beginpiclist.h"
+#import "beginpiclist1.h"
 #import "beginpic.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD+MJ.h"
 
-@interface beginpiclist ()<UITableViewDataSource,UITableViewDelegate>
+@interface beginpiclist1 ()<UITableViewDataSource,UITableViewDelegate>
 {
     int num;
 }
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation beginpiclist
+@implementation beginpiclist1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -156,7 +156,7 @@
     NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
     NSString *myString = [userDefaultes stringForKey:@"myidt"];
     
-    NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/YWT_Order.ashx?action=imgviewstart&q0=%@&q1=%d",urlt,myString,num];
+    NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/YWT_Order.ashx?YWT_Order.ashx?action=imgviewend&q0=%@&q1=%d",urlt,myString,num];
 
     NSLog(@"%@",urlStr2);
     self.tableview.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

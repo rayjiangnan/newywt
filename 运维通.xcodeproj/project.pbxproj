@@ -82,6 +82,7 @@
 		289E4F271B7E3A3800C19D13 /* RegistrationUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E4F211B7E3A3800C19D13 /* RegistrationUserCell.m */; };
 		289E4F281B7E3A3800C19D13 /* RegistrationUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289E4F221B7E3A3800C19D13 /* RegistrationUserCell.xib */; };
 		28B6A81B1B727368005ED2E9 /* diandetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6A81A1B727368005ED2E9 /* diandetail.m */; };
+		28B9FCCD1B921AF3004D0DFE /* beginpiclist1.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B9FCCC1B921AF3004D0DFE /* beginpiclist1.m */; };
 		28D6C8111B89EC26004301A3 /* danwei.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28D6C8101B89EC26004301A3 /* danwei.plist */; };
 		28DDBB5F1B667D6400C872EF /* userCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DDBB5D1B667D6400C872EF /* userCell.m */; };
 		28DDBB601B667D6400C872EF /* userCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28DDBB5E1B667D6400C872EF /* userCell.xib */; };
@@ -358,6 +359,8 @@
 		289E4F221B7E3A3800C19D13 /* RegistrationUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationUserCell.xib; sourceTree = "<group>"; };
 		28B6A8191B727368005ED2E9 /* diandetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diandetail.h; sourceTree = "<group>"; };
 		28B6A81A1B727368005ED2E9 /* diandetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diandetail.m; sourceTree = "<group>"; };
+		28B9FCCB1B921AF3004D0DFE /* beginpiclist1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = beginpiclist1.h; sourceTree = "<group>"; };
+		28B9FCCC1B921AF3004D0DFE /* beginpiclist1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = beginpiclist1.m; sourceTree = "<group>"; };
 		28D6C8101B89EC26004301A3 /* danwei.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = danwei.plist; sourceTree = "<group>"; };
 		28DDBB5C1B667D6400C872EF /* userCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userCell.h; sourceTree = "<group>"; };
 		28DDBB5D1B667D6400C872EF /* userCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userCell.m; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 				28780FC71B8F6C9700023040 /* beginpic.xib */,
 				28780FC81B8F6C9700023040 /* beginpiclist.h */,
 				28780FC91B8F6C9700023040 /* beginpiclist.m */,
+				28B9FCCB1B921AF3004D0DFE /* beginpiclist1.h */,
+				28B9FCCC1B921AF3004D0DFE /* beginpiclist1.m */,
 			);
 			name = xianchang;
 			sourceTree = "<group>";
@@ -1534,6 +1539,7 @@
 				785028021B593BF400444333 /* AFURLRequestSerialization.m in Sources */,
 				284C22D21B7F8453004B46D0 /* OnlineApprovalCompanyCell.m in Sources */,
 				78B4538B1B64A821000C70A7 /* mycell.m in Sources */,
+				28B9FCCD1B921AF3004D0DFE /* beginpiclist1.m in Sources */,
 				282D754C1B8063A10019D78C /* registperson.m in Sources */,
 				289E4F101B7E2CEC00C19D13 /* SBJsonStreamParserAdapter.m in Sources */,
 				78402A641B5B914A00908FA9 /* ordermodel.m in Sources */,

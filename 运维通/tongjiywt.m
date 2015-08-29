@@ -387,8 +387,9 @@
         NSMutableDictionary *dict=responseObject;
         if(![[dict objectForKey:@"ResultObject"] isEqual:[NSNull null]])
         {
-            NSMutableArray *dictarr=[[dict objectForKey:@"ResultObject"] mutableCopy];
-            self.tgs=dictarr;
+            NSMutableDictionary *dictarr=[[dict objectForKey:@"ResultObject"] mutableCopy];
+            NSMutableArray *array=[dictarr objectForKey:@"Items"];
+            self.tgs=array;
             [self.tableView reloadData];
         }
         

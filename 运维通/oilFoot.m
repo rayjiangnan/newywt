@@ -13,8 +13,8 @@
 
 @interface oilFoot ()
 @property (weak, nonatomic) IBOutlet UIView *imgtable;
-@property (weak, nonatomic) IBOutlet UILabel *totalkm;
-@property (weak, nonatomic) IBOutlet UILabel *monthkm;
+@property (weak, nonatomic) IBOutlet UILabel *finiorder;
+@property (weak, nonatomic) IBOutlet UILabel *pinfen;
 @property (weak, nonatomic) IBOutlet UILabel *monthmoney;
 @property (weak, nonatomic) IBOutlet UILabel *totkm;
 @property (weak, nonatomic) IBOutlet UILabel *totmoney;
@@ -378,46 +378,7 @@
     return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
 
--(void)network3{
-    
-    
-    NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
-    
-    NSString *myString = [userDefaultes stringForKey:@"myidt"];
-    
-    NSString *urlStr = [NSString stringWithFormat:@"%@/API/HDL_SNROilCard.ashx?action=subsidyviewday&q0=%@",urlt,myString];
-    NSLog(@"%@",urlStr);
-    NSString *str = @"type=focus-c";
-    
-    AFHTTPRequestOperation *op=[self POSTurlString:urlStr parameters:str];
-    
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *dict=responseObject;
-        if (![dict[@"ResultObject"] isEqual:[NSNull null]]) {
-            NSDictionary *dict1=dict[@"ResultObject"];
-        self.totalkm.text=[NSString stringWithFormat:@"%@",dict1[@"SMonty"]];
-              [self.view setNeedsDisplay];
-        }
 
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        
-        
-        [MBProgressHUD showError:@"网络请求出错"];
-        
-        return ;
-        
-    }];
-    
-    
-    
-    [[NSOperationQueue mainQueue] addOperation:op];
-    
-    
-    
-}
 
 
 
@@ -442,33 +403,10 @@
         NSLog(@"------%@",dict);
         if (![dict[@"ResultObject"] isEqual:[NSNull null]]) {
             NSDictionary *dict1=dict[@"ResultObject"];
-            
+            self.finiorder.text=[NSString stringWithFormat:@"%@",dict1[@"Item"][@"OrderFinishNum"]];
+            self.pinfen.text=[NSString stringWithFormat:@"%@",dict1[@"Item"][@"ScoreAvg"]];
 
-            
-            //当月
-            if (![dict1[@"CMSubsidy"] isEqual:[NSNull null]]) {
-                NSDictionary *dict3=dict1[@"CMSubsidy"];
-                self.monthkm.text=[NSString stringWithFormat:@"%@",dict3[@"Mileage"]];
-                self.monthmoney.text=[NSString stringWithFormat:@"%@",dict3[@"SubsidyMoney"]];
-            }
-            
-            
-            //总计
-            if (![dict1[@"SumSubsidy"] isEqual:[NSNull null]]) {
-                NSDictionary *dict4=dict1[@"SumSubsidy"];
-                self.totkm.text=[NSString stringWithFormat:@"%@",dict4[@"SumMileage"]];
-                self.totmoney.text=[NSString stringWithFormat:@"%@",dict4[@"SumSubsidyMoney"]];
-            }
-            
-            //油卡数量余额
-            if (![dict1[@"CardInfo"] isEqual:[NSNull null]]) {
-                NSDictionary *dict4=dict1[@"CardInfo"];
-                NSString *carnum=[NSString stringWithFormat:@"油卡数量 %@",dict4[@"CardNum"]];
-                NSString *yuer=[NSString stringWithFormat:@"余额 %@",dict4[@"TopSum"]];
-                [self.oilcardnum setTitle:carnum forState:UIControlStateNormal];
-                 [self.yuer setTitle:yuer forState:UIControlStateNormal];
-                
-            }
+           
             
             
             if (![dict1[@"M4Subsidys"] isEqual:[NSNull null]]) {

@@ -14,6 +14,13 @@
 
 @implementation qiandao
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden=NO;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat R  = (CGFloat) 0/255.0;

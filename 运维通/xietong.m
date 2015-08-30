@@ -232,21 +232,25 @@
     [request setHTTPBody:data];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         if (data != nil) {
+            
             NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
             NSArray *dictarr2=[[dict objectForKey:@"ResultObject"] copy];
             [self netwok:dictarr2];
             [self ann];
         }else{
             
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+           
                 
                 
                 return ;
                 
-            }];
+          
             
         }
+                }];
     }];
     
     

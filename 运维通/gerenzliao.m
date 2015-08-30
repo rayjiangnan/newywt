@@ -64,7 +64,7 @@
         NSDictionary *dictarr2=[dict objectForKey:@"ResultObject"];
         NSLog(@"---%@",dict);
         NSDictionary *dictarr=[dictarr2 objectForKey:@"User"];
-         NSDictionary *dictarr3=[dictarr2 objectForKey:@"UserInfo"];
+
         NSString *sty=[NSString stringWithFormat:@"%@",dictarr[@"UserType"]];
         if ([sty isEqualToString:@"10"]) {
             self.sty.text=@"维运商";
@@ -75,45 +75,49 @@
         self.tel.text=dictarr[@"UserName"];
         self.name.text=dictarr[@"RealName"];
          self.email.text=dictarr[@"Email"];
-        self.city.text=dictarr3[@"Location_Province"];
-        self.city.text=dictarr3[@"Location_City"];
-        self.qu.text=dictarr3[@"Location_County"];
-        self.detail.text=dictarr3[@"User_Address"];
-        self.xueli.text=dictarr3[@"HighestEducation"];
-        self.xuexiao.text=dictarr3[@"Finish_School"];
-        self.zhuanye.text=dictarr3[@"SpecialtyName"];
-        
-        self.jineng.text=dictarr3[@"SkillDescription"];
-        self.zhuanye.text=dictarr3[@"Specialty"];
-        
-        
-        
-        NSString *dt3=dictarr3[@"Birthday"];
-        
-        dt3=[dt3 stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
-        dt3=[dt3 stringByReplacingOccurrencesOfString:@")/" withString:@""];
-        NSLog(@"%@",dt3);
-        NSString * timeStampString3 =dt3;
-        NSTimeInterval _interval3=[timeStampString3 doubleValue] / 1000;
-        NSDate *date3 = [NSDate dateWithTimeIntervalSince1970:_interval3];
-        NSDateFormatter *objDateformat3 = [[NSDateFormatter alloc] init];
-        [objDateformat3 setDateFormat:@"yyyy-MM-dd HH:mm"];
-        self.time.text=[objDateformat3 stringFromDate: date3];
-        
-       
-        
-        NSString *dt4=dictarr3[@"GraduationData"];
-        
-        dt4=[dt4 stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
-        dt4=[dt4 stringByReplacingOccurrencesOfString:@")/" withString:@""];
-        NSLog(@"%@",dt4);
-        NSString * timeStampString4 =dt4;
-        NSTimeInterval _interval4=[timeStampString4 doubleValue] / 1000;
-        NSDate *date4 = [NSDate dateWithTimeIntervalSince1970:_interval4];
-        NSDateFormatter *objDateformat4 = [[NSDateFormatter alloc] init];
-        [objDateformat4 setDateFormat:@"yyyy-MM-dd HH:mm"];
-         self.btime.text=[objDateformat4 stringFromDate: date4];
-        
+
+        if (![[dictarr2 objectForKey:@"UserInfo"] isEqual:[NSNull null]]) {
+            NSDictionary *dictarr3=[dictarr2 objectForKey:@"UserInfo"];
+            self.city.text=dictarr3[@"Location_Province"];
+            self.city.text=dictarr3[@"Location_City"];
+            self.qu.text=dictarr3[@"Location_County"];
+            self.detail.text=dictarr3[@"User_Address"];
+            self.xueli.text=dictarr3[@"HighestEducation"];
+            self.xuexiao.text=dictarr3[@"Finish_School"];
+            self.zhuanye.text=dictarr3[@"SpecialtyName"];
+            
+            self.jineng.text=dictarr3[@"SkillDescription"];
+            self.zhuanye.text=dictarr3[@"Specialty"];
+            
+            
+            
+            NSString *dt3=dictarr3[@"Birthday"];
+            
+            dt3=[dt3 stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+            dt3=[dt3 stringByReplacingOccurrencesOfString:@")/" withString:@""];
+            NSLog(@"%@",dt3);
+            NSString * timeStampString3 =dt3;
+            NSTimeInterval _interval3=[timeStampString3 doubleValue] / 1000;
+            NSDate *date3 = [NSDate dateWithTimeIntervalSince1970:_interval3];
+            NSDateFormatter *objDateformat3 = [[NSDateFormatter alloc] init];
+            [objDateformat3 setDateFormat:@"yyyy-MM-dd HH:mm"];
+            self.time.text=[objDateformat3 stringFromDate: date3];
+            
+            
+            
+            NSString *dt4=dictarr3[@"GraduationData"];
+            
+            dt4=[dt4 stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+            dt4=[dt4 stringByReplacingOccurrencesOfString:@")/" withString:@""];
+            NSLog(@"%@",dt4);
+            NSString * timeStampString4 =dt4;
+            NSTimeInterval _interval4=[timeStampString4 doubleValue] / 1000;
+            NSDate *date4 = [NSDate dateWithTimeIntervalSince1970:_interval4];
+            NSDateFormatter *objDateformat4 = [[NSDateFormatter alloc] init];
+            [objDateformat4 setDateFormat:@"yyyy-MM-dd HH:mm"];
+            self.btime.text=[objDateformat4 stringFromDate: date4];
+        }
+ 
     }
 }
 

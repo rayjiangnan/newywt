@@ -32,6 +32,13 @@
 
 @implementation WarehouseView
 @synthesize strTtile;
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden=YES;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self isBlankString:strTtile] == NO) {

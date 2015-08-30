@@ -33,7 +33,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *sc;
 
-@property (weak, nonatomic) IBOutlet UILabel *bei;
+@property (weak, nonatomic) IBOutlet UITextView *bei;
+
 @property (weak, nonatomic) IBOutlet UILabel *lxrdh;
 @property (nonatomic,strong)NSString *idtt;
 @property (weak, nonatomic) IBOutlet UILabel *dri;

@@ -22,9 +22,17 @@
 
 @implementation beginpiclist1
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden=YES;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self netWorkRequest2];
+    [self repeatnetwork];
     num=0;
     self.tableview.rowHeight=130;
 }
@@ -48,7 +56,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     
-    return 10;
+    return _tgs.count;
     
 }
 
@@ -62,16 +70,27 @@
         cell=[[[NSBundle mainBundle] loadNibNamed:@"beginpic" owner:nil options:nil] lastObject];
     }
     cell.orderno.text=[NSString stringWithFormat:@"单号：%@",dict2[@"OrderNo"]];
-    cell.time.text=[NSString stringWithFormat:@"%@",dict2[@"CreateDateTime"]];
+    
+    NSString *dt3=dict2[@"CreateDateTime"];;
+    dt3=[dt3 stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+    dt3=[dt3 stringByReplacingOccurrencesOfString:@")/" withString:@""];
+    // NSLog(@"%@",dt3);
+    NSString * timeStampString3 =dt3;
+    NSTimeInterval _interval3=[timeStampString3 doubleValue] / 1000;
+    NSDate *date3 = [NSDate dateWithTimeIntervalSince1970:_interval3];
+    NSDateFormatter *objDateformat3 = [[NSDateFormatter alloc] init];
+    [objDateformat3 setDateFormat:@"MM-dd"];
+    cell.time.text=[objDateformat3 stringFromDate: date3];
+    
     cell.title.text=[NSString stringWithFormat:@"%@",dict2[@"OrderTitle"]];
     NSMutableArray *array=[dict2 objectForKey:@"Files"];
-   
+    
     if (array.count>0) {
         NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:1]];
         NSURL *imgurl=[NSURL URLWithString:img];
         UIImage *imgstr=[[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:imgurl]];
         [cell.btn1 setBackgroundImage:imgstr forState:UIControlStateNormal];
-         NSLog(@"%@",img);
+        NSLog(@"%@",img);
     }
     if (array.count>1) {
         NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:1]];
@@ -97,57 +116,52 @@
 
 
 
-//#pragma mark  下拉加载
-//
-//-(NSMutableArray *)repeatnetwork{
-//    
-//    //   __block int pageNum=0;
-//    //  __block  int  allPageNum=0;
-//    // __block   int  noDispatchPageNum=0;
-//    //  __block  int  transportPageNum=0;
-//    // __block   int waitPayPageNum=0;
-//    
-//    self.tableview.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-//    
-//    // self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//    
-//    //}];
-//    return _tgs;
-//    
-//}
-//-(void)loadMoreData
-//{
-//    int num=parameterNumber+1;
-//    NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
-//    NSString *myString = [userDefaultes stringForKey:@"myidt"];
-//    
-//    NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/HDL_SNROilCard.ashx?action=getlist&q0=%@&q1=%d",urlt,myString,num];
-//    NSLog(@"---------%@",urlStr2);
-//    
-//    AFHTTPRequestOperation *op=[self GETurlString:urlStr2];
-//    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSMutableDictionary *dict=responseObject;
-//        NSArray *dictarr=[dict objectForKey:@"ResultObject"];
-//        if(![dictarr isEqual:[NSNull null]])
-//        {
-//            [_tgs addObjectsFromArray:dictarr];
-//            [self.tableview reloadData];
-//        }
-//        [self.tableview.footer endRefreshing];
-//        self.tableview.footer.autoChangeAlpha=YES;
-//        
-//        parameterNumber=num;
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [MBProgressHUD showError:@"网络请求出错"];
-//    }];
-//    [[NSOperationQueue mainQueue] addOperation:op];
-//    
-//    
-//}
-//
-//
-//
+#pragma mark  下拉加载
+
+-(NSMutableArray *)repeatnetwork{
+    
+    
+    self.tableview.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    return _tgs;
+    
+}
+
+-(void)loadMoreData
+{
+    num=num+1;
+    NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
+    NSString *myString = [userDefaultes stringForKey:@"myidt"];
+    
+    NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/YWT_Order.ashx?action=imgviewend&q0=%@&q1=%d",urlt,myString,num];
+    NSLog(@"---------%@",urlStr2);
+    
+    AFHTTPRequestOperation *op=[self GETurlString:urlStr2];
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSMutableDictionary *dict=responseObject;
+        if(![[dict objectForKey:@"ResultObject"] isEqual:[NSNull null]])
+        {
+            NSMutableArray *dictarr=[[dict objectForKey:@"ResultObject"] mutableCopy];
+            [_tgs addObjectsFromArray:dictarr];
+            [self.tableview reloadData];
+            
+        }
+        
+        
+        [self.tableview.footer endRefreshing];
+        self.tableview.footer.autoChangeAlpha=YES;
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD showError:@"网络请求出错"];
+    }];
+    [[NSOperationQueue mainQueue] addOperation:op];
+    
+    
+}
+
+
+
 #pragma mark  下拉刷新
 
 -(void)netWorkRequest2
@@ -156,8 +170,8 @@
     NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
     NSString *myString = [userDefaultes stringForKey:@"myidt"];
     
-    NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/YWT_Order.ashx?YWT_Order.ashx?action=imgviewend&q0=%@&q1=%d",urlt,myString,num];
-
+    NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/YWT_Order.ashx?action=imgviewend&q0=%@&q1=%d",urlt,myString,num];
+    
     NSLog(@"%@",urlStr2);
     self.tableview.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
@@ -188,8 +202,5 @@
     
 }
 
-//
-//
-//
 
 @end

@@ -54,9 +54,25 @@
     self.tabBarController.tabBar.hidden=YES;
     NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
     NSString *mygh = [userDefaultes stringForKey:@"detaaddr"];
-    NSString *iphone=[userDefaultes stringForKey:@"iphone"];
-    self.lxdh.text=iphone;
-    self.dz.text=mygh;
+    
+    self.khjc.text = [userDefaultes stringForKey:@"CusShort"];
+    self.lxr.text=[userDefaultes stringForKey:@"ContactMan"];
+    self.lxdh.text = [userDefaultes stringForKey:@"ContactMobile"];
+    
+    if ([mygh isEqualToString:@""]) {
+          self.dz.text=[userDefaultes stringForKey:@"ContactAddress"];
+    }else{
+    
+     self.dz.text=mygh;
+    }
+    
+  
+    
+ 
+   
+    
+    
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

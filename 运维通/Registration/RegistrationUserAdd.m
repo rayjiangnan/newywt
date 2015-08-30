@@ -35,6 +35,13 @@
 @implementation RegistrationUserAdd
 @synthesize _locationManager;
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden=YES;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.tableview = [[UITableView alloc] initWithFrame:self.view.bounds];

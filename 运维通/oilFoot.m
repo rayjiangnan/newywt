@@ -21,19 +21,27 @@
 @property(strong,nonatomic)NSArray *tgs;
 @property(strong,nonatomic)NSString *monthnum1;
 @property(strong,nonatomic)NSString *mi1;
+@property(strong,nonatomic)NSString *mi1s;
 @property(strong,nonatomic)NSString *monthnum2;
 @property(strong,nonatomic)NSString *mi2;
+@property(strong,nonatomic)NSString *mi2s;
 @property(strong,nonatomic)NSString *monthnum3;
 @property(strong,nonatomic)NSString *mi3;
+@property(strong,nonatomic)NSString *mi3s;
 @property(strong,nonatomic)NSString *monthnum4;
 @property(strong,nonatomic)NSString *mi4;
+@property(strong,nonatomic)NSString *mi4s;
 @property (weak, nonatomic) IBOutlet UIButton *oilcardnum;
+@property (weak, nonatomic) IBOutlet UIView *view2;
 
 @property (weak, nonatomic) IBOutlet UIButton *yuer;
 @property (nonatomic, strong) NSTimer *_updateTimer95;
 @property (weak, nonatomic) IBOutlet UILabel *mibel;
 @property (weak, nonatomic) IBOutlet UILabel *top;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *mibel2;
+@property (weak, nonatomic) IBOutlet UILabel *top2;
 
 
 @end
@@ -42,10 +50,11 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    self.tabBarController.tabBar.hidden=YES;
       [self network];
 
-    
+        
+        self.tabBarController.tabBar.hidden=YES;
+
  
     
 }
@@ -117,7 +126,7 @@
     
   
     
-    int intString =ceilf([max intValue]+3000);
+    int intString =ceilf([max intValue]+50);
  
     self.top.text=[NSString stringWithFormat:@"%d",intString];
      self.mibel.text=[NSString stringWithFormat:@"%d",intString/2];
@@ -138,25 +147,14 @@
      */
     
     
-    NSLog(@"%@",_monthnum1);
-    if (_monthnum2==0) {
-        _monthnum2=[NSString stringWithFormat:@"%d",[_monthnum1 intValue]+1];
-    
-    }
-    if (_monthnum3==0) {
-        _monthnum2=[NSString stringWithFormat:@"%d",[_monthnum1 intValue]+2];
-        
-    }
-    if (_monthnum4==0) {
-        _monthnum2=[NSString stringWithFormat:@"%d",[_monthnum1 intValue]+3];
-        
-    }
+    NSLog(@"分%@",_mi1s);
+
     
     _lineGraph.xAxisValues = @[
-                               @{ @1 : @6},
-                               @{ @2 : @6},
-                               @{ @3 : @6},
-                               @{ @4 :@6},
+                               @{ @1 : _monthnum1 },
+                               @{ @2 : _monthnum2},
+                               @{ @3 : _monthnum3},
+                               @{ @4 : _monthnum4},
                                ];
     
     //create a new plot object that you want to draw on the `_lineGraph`
@@ -170,10 +168,10 @@
      *  greater than the `yAxisRange` specified in `SHLineGraphView`.
      */
     _plot1.plottingValues = @[
-                              @{ @1 :@6},
-                              @{ @2 :@6 },
-                              @{ @3 :@6  },
-                              @{ @4 :@6},
+                              @{ @1 : _mi1 },
+                              @{ @2 : _mi2  },
+                              @{ @3 : _mi3  },
+                              @{ @4 : _mi4 },
                               ];
     
     /**
@@ -263,10 +261,10 @@
     
     
     
-    int intString =ceilf([max intValue]+3000);
+    int intString =ceilf([max intValue]+100);
     
-    self.top.text=[NSString stringWithFormat:@"%d",intString];
-    self.mibel.text=[NSString stringWithFormat:@"%d",intString/2];
+    self.top2.text=[NSString stringWithFormat:@"%d",intString];
+    self.mibel2.text=[NSString stringWithFormat:@"%d",intString/2];
     
     _lineGraph.yAxisRange = @(intString);
     
@@ -284,25 +282,14 @@
      */
     
     
-    NSLog(@"%@",_monthnum1);
-    if (_monthnum2==0) {
-        _monthnum2=[NSString stringWithFormat:@"%d",[_monthnum1 intValue]+1];
-        
-    }
-    if (_monthnum3==0) {
-        _monthnum2=[NSString stringWithFormat:@"%d",[_monthnum1 intValue]+2];
-        
-    }
-    if (_monthnum4==0) {
-        _monthnum2=[NSString stringWithFormat:@"%d",[_monthnum1 intValue]+3];
-        
-    }
+    NSLog(@"分%@",_mi1s);
+
     
     _lineGraph.xAxisValues = @[
-                               @{ @1 :@6 },
-                               @{ @2 :@6},
-                               @{ @3 :@6},
-                               @{ @4 :@6},
+                               @{ @1 : _monthnum1 },
+                               @{ @2 : _monthnum2},
+                               @{ @3 : _monthnum3},
+                               @{ @4 : _monthnum4},
                                ];
     
     //create a new plot object that you want to draw on the `_lineGraph`
@@ -316,10 +303,10 @@
      *  greater than the `yAxisRange` specified in `SHLineGraphView`.
      */
     _plot1.plottingValues = @[
-                              @{ @1 :@6},
-                              @{ @2 :@6 },
-                              @{ @3 :@6 },
-                              @{ @4 :@6},
+                              @{ @1 : _mi1s },
+                              @{ @2 : _mi2s  },
+                              @{ @3 : _mi3s  },
+                              @{ @4 : _mi4s },
                               ];
     
     /**
@@ -327,7 +314,7 @@
      *  a particular points, a popover view is shown and will show the particular label on for that point, that is specified
      *  in this array.
      */
-    NSArray *arr = @[@"1", @"2", @"3", @"4"];
+    NSArray *arr = @[@"a1", @"a2", @"a3", @"a4"];
     
     
     _plot1.plottingPointsLabels= arr;
@@ -342,10 +329,10 @@
      */
     
     NSDictionary *_plotThemeAttributes = @{
-                                           kPlotFillColorKey : [UIColor colorWithRed:0.85 green:0.94 blue:0.99 alpha:0.5],
+                                           kPlotFillColorKey : [UIColor colorWithRed:0.93 green:0.50 blue:0.15 alpha:0.5],
                                            kPlotStrokeWidthKey : @2,
-                                           kPlotStrokeColorKey : [UIColor colorWithRed:0.06 green:0.47 blue:0.87 alpha:1],
-                                           kPlotPointFillColorKey : [UIColor colorWithRed:0.06 green:0.47 blue:0.87 alpha:1],
+                                           kPlotStrokeColorKey : [UIColor colorWithRed:0.93 green:0.50 blue:0.15 alpha:1],
+                                           kPlotPointFillColorKey : [UIColor colorWithRed:0.93 green:0.50 blue:0.15 alpha:1],
                                            kPlotPointValueFontKey : [UIFont fontWithName:@"TrebuchetMS" size:15]
                                            };
     
@@ -356,7 +343,7 @@
     
     [_lineGraph setupTheView];
     
-    [self.imgtable addSubview:_lineGraph];
+    [self.view2 addSubview:_lineGraph];
     
 }
 
@@ -409,44 +396,53 @@
            
             
             
-            if (![dict1[@"M4Subsidys"] isEqual:[NSNull null]]) {
-                NSArray *month=[dict1 objectForKey:@"M4Subsidys"];
+            if (![dict1[@"Items"] isEqual:[NSNull null]]) {
+                 NSArray *month=dict1[@"Items"];
                 
                 if (month.count>0) {
                     
                     NSDictionary *dict1=[month objectAtIndex:0];
                     _monthnum1=[NSString stringWithFormat:@"%@月份",dict1[@"IMonth"]];
                     _mi1=[NSString stringWithFormat:@"%@",dict1[@"Mileage"]];
+                    _mi1s=[NSString stringWithFormat:@"%@",dict1[@"ScoreAvg"]];
+                    
                 }else{
-                    _monthnum1=@"0";
+                    _monthnum1=@"";
                     _mi1=@"0";
+                     _mi1s=@"0";
                 }
                 if (month.count>1) {
                     NSDictionary *dict2=[month objectAtIndex:1];
                     _monthnum2=[NSString stringWithFormat:@"%@月份",dict2[@"IMonth"]];
                     _mi2=[NSString stringWithFormat:@"%@",dict2[@"Mileage"]];
+                     _mi2s=[NSString stringWithFormat:@"%@",dict1[@"ScoreAvg"]];
                 }else{
-                    _monthnum2=@"0";
+                    _monthnum2=@"";
                     _mi2=@"0";
+                     _mi2s=@"0";
                 }
                 if (month.count>2) {
                     NSDictionary *dict3=[month objectAtIndex:2];
                     _monthnum3=[NSString stringWithFormat:@"%@月份",dict3[@"IMonth"]];
                     _mi3=[NSString stringWithFormat:@"%@",dict3[@"Mileage"]];
+                     _mi3s=[NSString stringWithFormat:@"%@",dict1[@"ScoreAvg"]];
                 }else{
-                    _monthnum3=@"0";
+                    _monthnum3=@"";
                     _mi3=@"0";
+                     _mi3s=@"0";
                 }
                 if (month.count>3) {
                     NSDictionary *dict4=[month objectAtIndex:3];
                     _monthnum4=[NSString stringWithFormat:@"%@月份",dict4[@"IMonth"]];
                     _mi4=[NSString stringWithFormat:@"%@",dict4[@"Mileage"]];
+                     _mi4s=[NSString stringWithFormat:@"%@",dict1[@"ScoreAvg"]];
                 }else{
-                    _monthnum4=@"0";
+                    _monthnum4=@"";
                     _mi4=@"0";
+                     _mi4s=@"0";
                 }
                 [self df];
-                
+                [self df2];
 
         }
         

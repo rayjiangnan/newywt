@@ -21,6 +21,8 @@
 		284132131B764DB2005B5872 /* xietong.m in Sources */ = {isa = PBXBuildFile; fileRef = 284132121B764DB2005B5872 /* xietong.m */; };
 		284132161B765610005B5872 /* xietongcenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 284132151B765610005B5872 /* xietongcenter.m */; };
 		284132191B7657E1005B5872 /* qiandao.m in Sources */ = {isa = PBXBuildFile; fileRef = 284132181B7657E1005B5872 /* qiandao.m */; };
+		2844F7041B93218400ADE377 /* CustomerList2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844F7031B93218400ADE377 /* CustomerList2.m */; };
+		2844F70A1B93336500ADE377 /* scus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844F7091B93336500ADE377 /* scus.m */; };
 		284A5F5B1B7ECF0E000DF654 /* genxin.m in Sources */ = {isa = PBXBuildFile; fileRef = 284A5F5A1B7ECF0E000DF654 /* genxin.m */; };
 		284B339C1B6FB325001D8A88 /* writedate.m in Sources */ = {isa = PBXBuildFile; fileRef = 284B339B1B6FB325001D8A88 /* writedate.m */; };
 		284B339F1B6FC556001D8A88 /* dianping.m in Sources */ = {isa = PBXBuildFile; fileRef = 284B339E1B6FC556001D8A88 /* dianping.m */; };
@@ -244,6 +246,10 @@
 		284132151B765610005B5872 /* xietongcenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xietongcenter.m; sourceTree = "<group>"; };
 		284132171B7657E1005B5872 /* qiandao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qiandao.h; sourceTree = "<group>"; };
 		284132181B7657E1005B5872 /* qiandao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qiandao.m; sourceTree = "<group>"; };
+		2844F7021B93218400ADE377 /* CustomerList2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerList2.h; sourceTree = "<group>"; };
+		2844F7031B93218400ADE377 /* CustomerList2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerList2.m; sourceTree = "<group>"; };
+		2844F7081B93336500ADE377 /* scus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scus.h; sourceTree = "<group>"; };
+		2844F7091B93336500ADE377 /* scus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scus.m; sourceTree = "<group>"; };
 		284A5F591B7ECF0E000DF654 /* genxin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = genxin.h; sourceTree = "<group>"; };
 		284A5F5A1B7ECF0E000DF654 /* genxin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = genxin.m; sourceTree = "<group>"; };
 		284B339A1B6FB325001D8A88 /* writedate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writedate.h; sourceTree = "<group>"; };
@@ -761,6 +767,10 @@
 				2860FE191B82323E00C9B6CF /* CustomerEidt.m */,
 				2860FE1A1B82323E00C9B6CF /* CustomerList.h */,
 				2860FE1B1B82323E00C9B6CF /* CustomerList.m */,
+				2844F7021B93218400ADE377 /* CustomerList2.h */,
+				2844F7031B93218400ADE377 /* CustomerList2.m */,
+				2844F7081B93336500ADE377 /* scus.h */,
+				2844F7091B93336500ADE377 /* scus.m */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -1502,6 +1512,7 @@
 				289E4EEC1B7E2A1600C19D13 /* WarehouseListYWUser.m in Sources */,
 				78B453731B647A6D000C70A7 /* mylist.m in Sources */,
 				7860A5571B63BFA60067253C /* MJRefreshFooter.m in Sources */,
+				2844F7041B93218400ADE377 /* CustomerList2.m in Sources */,
 				289E4F0E1B7E2CEC00C19D13 /* SBJsonStreamParser.m in Sources */,
 				284C22D41B7F8453004B46D0 /* OnlineApprovalCompanyList.m in Sources */,
 				785028041B593BF400444333 /* AFURLSessionManager.m in Sources */,
@@ -1551,6 +1562,7 @@
 				7860A5661B63BFA60067253C /* UIView+MJExtension.m in Sources */,
 				78B4537B1B647AE2000C70A7 /* postlist.m in Sources */,
 				7860A5561B63BFA60067253C /* MJRefreshComponent.m in Sources */,
+				2844F70A1B93336500ADE377 /* scus.m in Sources */,
 				39998D8B1B52B781001D4BCA /* pinyin.c in Sources */,
 				289E4F251B7E3A3800C19D13 /* RegistrationComapnyView.m in Sources */,
 				289E4F151B7E2CEC00C19D13 /* SBJsonTokeniser.m in Sources */,

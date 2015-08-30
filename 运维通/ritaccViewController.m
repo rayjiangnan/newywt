@@ -33,7 +33,7 @@
     self.tabBarController.tabBar.hidden=NO;
     if(!_timeer)
     {
-        _timeer=[NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(updateloaction) userInfo:nil repeats:YES];
+        _timeer=[NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(updateloaction) userInfo:nil repeats:YES];
         [_timeer fire];
     }
     
@@ -96,6 +96,16 @@
     
     self._updateTimer2 = [NSTimer scheduledTimerWithTimeInterval:20.0f target:self selector:@selector(copynet) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self._updateTimer2 forMode:NSRunLoopCommonModes];
+    
+    NSString *kong=@"";
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:kong forKey:@"CusShort"];
+    [userDefaults setObject:kong forKey:@"ContactMan"];
+    [userDefaults setObject:kong forKey:@"ContactMobile"];
+    [userDefaults setObject:kong forKey:@"ContactAddress"];
+    [userDefaults setObject:kong forKey:@"detaaddr"];
+    [userDefaults synchronize];
+    
     
 }
 
@@ -194,21 +204,26 @@
     [request setHTTPBody:data];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         if (data != nil) {
+            
+            
+            
             NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
             NSArray *dictarr2=[[dict objectForKey:@"ResultObject"] copy];
             [self netwok:dictarr2];
             [self ann];
         }else{
             
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
                 
                 
                 return ;
                 
-            }];
             
         }
+        }];
+
     }];
     
     

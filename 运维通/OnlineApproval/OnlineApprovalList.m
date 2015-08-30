@@ -28,7 +28,11 @@
 
 
 -(void)viewDidAppear:(BOOL)animated{
-   
+
+        
+        self.tabBarController.tabBar.hidden=YES;
+        
+ 
     [self network2];
     [self.tableview reloadData];
 }

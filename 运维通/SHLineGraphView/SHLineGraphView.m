@@ -361,7 +361,7 @@
         
         NSString *myString = [userDefaultes stringForKey:@"myidt"];
         
-        NSString *urlStr = [NSString stringWithFormat:@"%@/API/HDL_SNROilCard.ashx?action=subsidyview&q0=%@",urlt,myString];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/API/YWT_Order.ashx?action=monthview&q0=%@",urlt,myString];
         NSURL *url = [NSURL URLWithString:urlStr];
         //第二步，创建请求
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:2.0f];
@@ -376,8 +376,14 @@
             NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:received options:NSJSONReadingMutableLeaves error:nil];
             NSDictionary *dictarr2=[dict objectForKey:@"ResultObject"];
             //  NSArray *dictarr=[dictarr2 objectForKey:@"OrderFile"];
-            if (![dictarr2[@"M4Subsidys"] isEqual:[NSNull null]]) {
-                NSArray *month=[dictarr2 objectForKey:@"M4Subsidys"];
+            
+            if (![dictarr2[@"Items"] isEqual:[NSNull null]]){
+                  NSArray *month=dictarr2[@"Items"];
+                NSLog(@"%@",[_plot.plottingPointsLabels objectAtIndex:1]);
+                NSString *aa1=[NSString stringWithFormat:@"%@",[_plot.plottingPointsLabels objectAtIndex:0]];
+                  NSString *aa2=[NSString stringWithFormat:@"%@",[_plot.plottingPointsLabels objectAtIndex:1]];
+                  NSString *aa3=[NSString stringWithFormat:@"%@",[_plot.plottingPointsLabels objectAtIndex:2]];
+                  NSString *aa4=[NSString stringWithFormat:@"%@",[_plot.plottingPointsLabels objectAtIndex:3]];
                 
                 NSString *n1;
                 NSString *n2;
@@ -387,23 +393,46 @@
                 if (month.count>0) {
                     
                     NSDictionary *dict1=[month objectAtIndex:0];
-                   n1=[NSString stringWithFormat:@"%@",dict1[@"Mileage"]];
+                    if ([aa1 isEqualToString:@"a1"]) {
+                         n1=[NSString stringWithFormat:@"%@",dict1[@"ScoreAvg"]];
+                    }else{
+                  
+                        
+                         n1=[NSString stringWithFormat:@"%@",dict1[@"OrderFinishNum"]];
+                    }
+                  
                      }
                 
                  if (month.count>1) {
                     NSDictionary *dict2=[month objectAtIndex:1];
-                   n2=[NSString stringWithFormat:@"%@",dict2[@"Mileage"]];
-                 }
+                     if ([aa2 isEqualToString:@"a2"]) {
+                         n2=[NSString stringWithFormat:@"%@",dict2[@"ScoreAvg"]];
+                     }else{
+                         
+                         
+                         n2=[NSString stringWithFormat:@"%@",dict2[@"OrderFinishNum"]];
+                     }                 }
                 
                 if (month.count>2) {
                     NSDictionary *dict3=[month objectAtIndex:2];
-                   n3=[NSString stringWithFormat:@"%@",dict3[@"Mileage"]];
+                    if ([aa3 isEqualToString:@"a3"]) {
+                        n3=[NSString stringWithFormat:@"%@",dict3[@"ScoreAvg"]];
+                    }else{
+                        
+                        
+                        n3=[NSString stringWithFormat:@"%@",dict3[@"OrderFinishNum"]];
+                    }
                 }
                 
                 if (month.count>3) {
                     NSDictionary *dict4=[month objectAtIndex:3];
-                  n4=[NSString stringWithFormat:@"%@",dict4[@"Mileage"]];
-                }
+                    if ([aa4 isEqualToString:@"a4"]) {
+                        n1=[NSString stringWithFormat:@"%@",dict4[@"ScoreAvg"]];
+                    }else{
+                        
+                        
+                        n1=[NSString stringWithFormat:@"%@",dict4[@"OrderFinishNum"]];
+                    }                }
                 
                     if ([text isEqualToString:@"1"]) {
                         
@@ -422,6 +451,24 @@
                         lbl.text =n4;
                     }
                
+                if ([text isEqualToString:@"a1"]) {
+                    
+                    lbl.text =n1;
+                }
+                if ([text isEqualToString:@"a2"]) {
+                    
+                    lbl.text =n2;
+                }
+                if ([text isEqualToString:@"a3"]) {
+                    
+                    lbl.text =n3;
+                }
+                if ([text isEqualToString:@"a4"]) {
+                    
+                    lbl.text =n4;
+                }
+
+                
                 
             }
             

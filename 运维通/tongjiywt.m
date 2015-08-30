@@ -40,6 +40,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *fanhui;
 
+@property (weak, nonatomic) IBOutlet UILabel *fnum;
+@property (weak, nonatomic) IBOutlet UILabel *pfen;
 
 - (IBAction)didClickAllAction:(id)sender;
 
@@ -60,7 +62,6 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     self.tabBarController.tabBar.hidden=NO;
-    //[self didClickAllAction:self.all];
     
 }
 
@@ -69,7 +70,8 @@
 {
     [super viewDidLoad];
     [self didClickAllAction:self.all];
-    [self repeatnetwork];
+//    [self repeatnetwork];
+    [self netWorkRequest2];
     
     
     
@@ -108,14 +110,7 @@
     
     NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
     NSString *pass= [userDefaultes stringForKey:@"passkey"];
-    if ([pass isEqualToString:@"pass"]) {
-        self.navigationItem.hidesBackButton =YES;
-        self.fanhui.hidden=YES;
-        
-    }else if([pass isEqualToString:@"sjpass"]){
-        self.navigationItem.hidesBackButton =YES;
-    }
-    self.tableView.rowHeight=145;
+      self.tableView.rowHeight=50;
     self.tableView.delegate=self;
     
     
@@ -145,10 +140,30 @@
     tongjiCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"tongjiCell" owner:nil options:nil] lastObject];
-        
-        
+   
     }
-    
+    if ([[NSString stringWithFormat:@"%@",dict2[@"rowid"]] isEqualToString:@"1"]) {
+        cell.paiimg.hidden=NO;
+        cell.paiimg.image=[UIImage imageNamed:@"icon_img_1"];
+        cell.pai.text=@"";
+    }
+    if ([[NSString stringWithFormat:@"%@",dict2[@"rowid"]] isEqualToString:@"2"]) {
+        cell.paiimg.hidden=NO;
+        cell.paiimg.image=[UIImage imageNamed:@"icon_img_2"];
+       cell.pai.text=@"";
+    }
+    if ([[NSString stringWithFormat:@"%@",dict2[@"rowid"]] isEqualToString:@"3"]) {
+        cell.paiimg.hidden=NO;
+        cell.paiimg.image=[UIImage imageNamed:@"icon_img_3"];
+        cell.pai.text=@"";
+    }
+  
+     cell.pai.text=[NSString stringWithFormat:@"%@",dict2[@"rowid"]];
+    if (![dict2[@"RealName"] isEqual:[NSNull null]]) {
+       cell.name.text=[NSString stringWithFormat:@"%@",dict2[@"RealName"]];
+    }
+   cell.danno.text=[NSString stringWithFormat:@"%@",dict2[@"OrderFinishNum"]];
+    cell.fen.text=[NSString stringWithFormat:@"%@",dict2[@"ScoreAvg"]];
 
     
     return cell;
@@ -303,72 +318,71 @@
     return _idtt3;
     
 }
-#pragma mark  下拉加载
-
--(NSMutableArray *)repeatnetwork{
-    
-    //   __block int pageNum=0;
-    //  __block  int  allPageNum=0;
-    // __block   int  noDispatchPageNum=0;
-    //  __block  int  transportPageNum=0;
-    // __block   int waitPayPageNum=0;
-    
-    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    
-    // self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-    
-    //}];
-    return _tgs;
-    
-    
-}
--(void)loadMoreData
-{
-    
-    if(parameterNumber==0)
-    {
-        allPageNum++;
-        pageNum=allPageNum;
-        
-    }else if (parameterNumber==1)
-    {
-        noDispatchPageNum++;
-        pageNum=noDispatchPageNum;
-    }else if (parameterNumber==2)
-    {
-        transportPageNum++;
-        pageNum=transportPageNum;
-    }else
-    {
-        waitPayPageNum++;
-        pageNum=waitPayPageNum;
-    }
-    NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
-    NSString *myString = [userDefaultes stringForKey:@"myidt"];
-    
-    NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/HDL_Order.ashx?action=getlist&q0=%d&q1=%@&q2=%d",urlt,
-                         pageNum,myString,parameterNumber-1];
-    
-    AFHTTPRequestOperation *op=[self GETurlString:urlStr2];
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSMutableDictionary *dict=responseObject;
-        NSArray *dictarr=[dict objectForKey:@"ResultObject"];
-        if(![dictarr isEqual:[NSNull null]])
-        {
-            [_tgs addObjectsFromArray:dictarr];
-            [self.tableView reloadData];
-        }
-        [self.tableView.footer endRefreshing];
-        self.tableView.footer.autoChangeAlpha=YES;
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [MBProgressHUD showError:@"网络请求出错"];
-    }];
-    [[NSOperationQueue mainQueue] addOperation:op];
-    
-    
-}
+//#pragma mark  下拉加载
+//
+//-(NSMutableArray *)repeatnetwork{
+//    
+//    //   __block int pageNum=0;
+//    //  __block  int  allPageNum=0;
+//    // __block   int  noDispatchPageNum=0;
+//    //  __block  int  transportPageNum=0;
+//    // __block   int waitPayPageNum=0;
+//    
+//    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+//    
+//    // self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//    
+//    //}];
+//    return _tgs;
+//    
+//    
+//}
+//-(void)loadMoreData
+//{
+//    
+//    if(parameterNumber==0)
+//    {
+//        allPageNum++;
+//        pageNum=allPageNum;
+//        
+//    }else if (parameterNumber==1)
+//    {
+//        noDispatchPageNum++;
+//        pageNum=noDispatchPageNum;
+//    }else if (parameterNumber==2)
+//    {
+//        transportPageNum++;
+//        pageNum=transportPageNum;
+//    }else
+//    {
+//        waitPayPageNum++;
+//        pageNum=waitPayPageNum;
+//    }
+//    NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
+//    NSString *myString = [userDefaultes stringForKey:@"myidt"];
+//    
+//    NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/YWT_Order.ashx?action=monthviewaadmin&q0=%@&q1=%@",urlt,myString,idts];
+//    
+//    AFHTTPRequestOperation *op=[self GETurlString:urlStr2];
+//    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSMutableDictionary *dict=responseObject;
+//        NSArray *dictarr=[dict objectForKey:@"ResultObject"];
+//        if(![dictarr isEqual:[NSNull null]])
+//        {
+//            [_tgs addObjectsFromArray:dictarr];
+//            [self.tableView reloadData];
+//        }
+//        [self.tableView.footer endRefreshing];
+//        self.tableView.footer.autoChangeAlpha=YES;
+//        
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        [MBProgressHUD showError:@"网络请求出错"];
+//    }];
+//    [[NSOperationQueue mainQueue] addOperation:op];
+//    
+//    
+//}
 
 
 #pragma mark  点击按钮请求网络
@@ -388,6 +402,11 @@
         if(![[dict objectForKey:@"ResultObject"] isEqual:[NSNull null]])
         {
             NSMutableDictionary *dictarr=[[dict objectForKey:@"ResultObject"] mutableCopy];
+            NSMutableDictionary *dict3=[dictarr objectForKey:@"Item"];
+            
+            self.fnum.text=[NSString stringWithFormat:@"%@",dict3[@"OrderFinishNum"]];
+            self.pfen.text=[NSString stringWithFormat:@"%@", dict3[@"ScoreAvg"]];
+            
             NSMutableArray *array=[dictarr objectForKey:@"Items"];
             self.tgs=array;
             [self.tableView reloadData];
@@ -422,10 +441,17 @@
             NSMutableDictionary *dict=responseObject;
             if(![[dict objectForKey:@"ResultObject"] isEqual:[NSNull null]])
             {
-                NSMutableArray *dictarr=[[dict objectForKey:@"ResultObject"] mutableCopy];
-                self.tgs=dictarr;
+                NSMutableDictionary *dictarr=[[dict objectForKey:@"ResultObject"] mutableCopy];
+                NSMutableDictionary *dict3=[dictarr objectForKey:@"Item"];
+                
+                self.fnum.text=[NSString stringWithFormat:@"%@",dict3[@"OrderFinishNum"]];
+                self.pfen.text=[NSString stringWithFormat:@"%@", dict3[@"ScoreAvg"]];
+                
+                NSMutableArray *array=[dictarr objectForKey:@"Items"];
+                self.tgs=array;
                 [self.tableView reloadData];
             }
+
             
             [self.tableView.header endRefreshing];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

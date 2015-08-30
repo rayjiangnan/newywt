@@ -60,6 +60,18 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *rowdata=[self.tgs objectAtIndex:[indexPath row]];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:rowdata[@"Order_ID"] forKey:@"orderidt"];
+    
+    [userDefaults synchronize];
+    
+    [self performSegueWithIdentifier:@"xiangxi" sender:nil];
+    
+    
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     

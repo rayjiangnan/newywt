@@ -115,13 +115,7 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *rowdata=[self.tgs objectAtIndex:[indexPath row]];
-    
-    [self performSegueWithIdentifier:@"xiangxi" sender:nil];
-    
-    
-}
+
 
 
 #pragma mark  下拉加载

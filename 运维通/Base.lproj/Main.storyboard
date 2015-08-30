@@ -3323,7 +3323,7 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQS-5O-8et">
                                 <rect key="frame" x="0.0" y="78" width="320" height="490"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30435BDF-DDD1-4456-B98B-F7DEFFEFB3E2" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-i0-GOl">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AA598767-9260-4DE2-99A1-261082160EBB" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-i0-GOl">
                                         <rect key="frame" x="8" y="8" width="35" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="ckV-w1-KQG"/>
@@ -8532,7 +8532,6 @@
                     <navigationItem key="navigationItem" id="h3d-Pu-NcZ"/>
                     <connections>
                         <outlet property="tableview" destination="Bp0-Tu-8EF" id="PiE-tr-7F0"/>
-                        <segue destination="fE7-Xm-kPc" kind="push" identifier="xiangxi" id="45S-Zp-n9e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJg-18-kKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8571,16 +8570,17 @@
                     <navigationItem key="navigationItem" id="zA7-5r-sfp"/>
                     <connections>
                         <outlet property="tableview" destination="859-aI-ZjU" id="ebZ-F1-OQ4"/>
+                        <segue destination="fE7-Xm-kPc" kind="push" identifier="xiangxi" id="bCN-Tn-ic6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aqc-iv-6a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-534" y="-2489"/>
         </scene>
-        <!--View Controller-->
+        <!--Imgdetal-->
         <scene sceneID="C0a-d4-lep">
             <objects>
-                <viewController id="fE7-Xm-kPc" sceneMemberID="viewController">
+                <viewController id="fE7-Xm-kPc" customClass="imgdetal" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QHF-RR-UiZ"/>
                         <viewControllerLayoutGuide type="bottom" id="SD1-5x-5aS"/>
@@ -8594,11 +8594,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7T-9p-kF0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-666" y="-1774"/>
+            <point key="canvasLocation" x="-748" y="-1811"/>
         </scene>
     </scenes>
     <resources>
-        <image name="30435BDF-DDD1-4456-B98B-F7DEFFEFB3E2" width="42" height="45">
+        <image name="AA598767-9260-4DE2-99A1-261082160EBB" width="42" height="45">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -8865,22 +8865,22 @@ AAACAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAAsQg
         <segue reference="rJg-SZ-34s"/>
         <segue reference="2cH-fb-GsD"/>
         <segue reference="Oas-do-MOp"/>
-        <segue reference="jn4-x1-t2h"/>
-        <segue reference="7Sh-Gb-lvW"/>
-        <segue reference="iYm-cE-ad0"/>
-        <segue reference="ID7-e7-kHM"/>
-        <segue reference="T7E-Em-xAM"/>
-        <segue reference="lxC-IX-tI8"/>
-        <segue reference="Th0-1i-tao"/>
-        <segue reference="nqA-Ux-qc4"/>
-        <segue reference="EZI-rT-3TM"/>
-        <segue reference="o6G-hT-geX"/>
-        <segue reference="dsb-QU-8Ca"/>
-        <segue reference="ccu-cf-rq9"/>
-        <segue reference="GV5-3J-q4j"/>
         <segue reference="A5w-83-lnn"/>
         <segue reference="z9T-58-7PP"/>
-        <segue reference="aCX-Aw-QYs"/>
+        <segue reference="GV5-3J-q4j"/>
+        <segue reference="64d-NN-AQD"/>
+        <segue reference="7Sh-Gb-lvW"/>
+        <segue reference="ID7-e7-kHM"/>
+        <segue reference="lxC-IX-tI8"/>
+        <segue reference="iYm-cE-ad0"/>
+        <segue reference="Th0-1i-tao"/>
+        <segue reference="nqA-Ux-qc4"/>
+        <segue reference="T7E-Em-xAM"/>
+        <segue reference="EZI-rT-3TM"/>
+        <segue reference="dsb-QU-8Ca"/>
+        <segue reference="o6G-hT-geX"/>
+        <segue reference="ccu-cf-rq9"/>
         <segue reference="Ckp-XC-Ulu"/>
+        <segue reference="aCX-Aw-QYs"/>
     </inferredMetricsTieBreakers>
 </document>

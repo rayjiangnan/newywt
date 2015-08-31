@@ -86,7 +86,7 @@
     NSMutableArray *array=[dict2 objectForKey:@"Files"];
    
     if (array.count>0) {
-        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:1]];
+        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:0]];
         NSURL *imgurl=[NSURL URLWithString:img];
         UIImage *imgstr=[[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:imgurl]];
         [cell.btn1 setBackgroundImage:imgstr forState:UIControlStateNormal];
@@ -99,13 +99,13 @@
         [cell.btn2 setBackgroundImage:imgstr forState:UIControlStateNormal];
     }
     if (array.count>2) {
-        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:1]];
+        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:2]];
         NSURL *imgurl=[NSURL URLWithString:img];
         UIImage *imgstr=[[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:imgurl]];
         [cell.btn3 setBackgroundImage:imgstr forState:UIControlStateNormal];
     }
     if (array.count>3) {
-        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:1]];
+        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:3]];
         NSURL *imgurl=[NSURL URLWithString:img];
         UIImage *imgstr=[[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:imgurl]];
         [cell.btn4 setBackgroundImage:imgstr forState:UIControlStateNormal];
@@ -115,7 +115,17 @@
 }
 
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *rowdata=[self.tgs objectAtIndex:[indexPath row]];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:rowdata[@"Order_ID"] forKey:@"orderidt"];
+    
+    [userDefaults synchronize];
+    
+    [self performSegueWithIdentifier:@"xiangxi" sender:nil];
+    
+    
+}
 
 
 #pragma mark  下拉加载

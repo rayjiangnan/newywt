@@ -3323,7 +3323,7 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQS-5O-8et">
                                 <rect key="frame" x="0.0" y="78" width="320" height="490"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AA598767-9260-4DE2-99A1-261082160EBB" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-i0-GOl">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CA2B359B-B19F-48C4-8391-4FBEA86CC682" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-i0-GOl">
                                         <rect key="frame" x="8" y="8" width="35" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="ckV-w1-KQG"/>
@@ -8532,6 +8532,7 @@
                     <navigationItem key="navigationItem" id="h3d-Pu-NcZ"/>
                     <connections>
                         <outlet property="tableview" destination="Bp0-Tu-8EF" id="PiE-tr-7F0"/>
+                        <segue destination="PC3-45-LXQ" kind="push" identifier="xiangxi" id="EhQ-I1-eq4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJg-18-kKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8570,35 +8571,225 @@
                     <navigationItem key="navigationItem" id="zA7-5r-sfp"/>
                     <connections>
                         <outlet property="tableview" destination="859-aI-ZjU" id="ebZ-F1-OQ4"/>
-                        <segue destination="fE7-Xm-kPc" kind="push" identifier="xiangxi" id="bCN-Tn-ic6"/>
+                        <segue destination="PC3-45-LXQ" kind="push" identifier="xiangxi" id="wbQ-AL-EPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aqc-iv-6a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-534" y="-2489"/>
         </scene>
-        <!--Imgdetal-->
-        <scene sceneID="C0a-d4-lep">
+        <!--图片-->
+        <scene sceneID="tMv-jG-48a">
             <objects>
-                <viewController id="fE7-Xm-kPc" customClass="imgdetal" sceneMemberID="viewController">
+                <viewController id="PC3-45-LXQ" userLabel="图片" customClass="imgdetal" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QHF-RR-UiZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="SD1-5x-5aS"/>
+                        <viewControllerLayoutGuide type="top" id="344-Ls-4Ae"/>
+                        <viewControllerLayoutGuide type="bottom" id="vh5-lA-E9t"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bXl-M5-iQn">
+                    <view key="view" contentMode="scaleToFill" id="2MF-Xw-EPC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-NI-DBU">
+                                <rect key="frame" x="11" y="84" width="90" height="120"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xAd-4n-QTc">
+                                <rect key="frame" x="115" y="84" width="90" height="120"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fr-oY-C2F">
+                                <rect key="frame" x="220" y="84" width="90" height="120"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tnr-J1-WoH">
+                                <rect key="frame" x="11" y="219" width="90" height="120"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gq8-Dt-U2y">
+                                <rect key="frame" x="115" y="219" width="90" height="120"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G2V-8h-yMd">
+                                <rect key="frame" x="220" y="219" width="90" height="120"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="734-U2-spK">
+                                <rect key="frame" x="11" y="356" width="90" height="120"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPd-rg-yrc">
+                                <rect key="frame" x="115" y="356" width="90" height="120"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D6m-hG-BgJ">
+                                <rect key="frame" x="220" y="356" width="90" height="120"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0z-jC-OLX">
+                                <rect key="frame" x="12" y="84" width="84" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn1:" destination="PC3-45-LXQ" eventType="touchUpInside" id="zst-Ql-KLx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BV-HV-lII">
+                                <rect key="frame" x="115" y="84" width="90" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn2:" destination="PC3-45-LXQ" eventType="touchUpInside" id="y5u-dv-xs2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbP-Ic-ph9">
+                                <rect key="frame" x="219" y="84" width="90" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn3:" destination="PC3-45-LXQ" eventType="touchUpInside" id="Ifb-0k-QKz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRv-5f-sLn">
+                                <rect key="frame" x="11" y="219" width="84" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn4:" destination="PC3-45-LXQ" eventType="touchUpInside" id="6U3-fS-BEs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Lk-o4-sP1">
+                                <rect key="frame" x="114" y="219" width="90" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn5:" destination="PC3-45-LXQ" eventType="touchUpInside" id="56x-Uh-odo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0w8-7O-mhZ">
+                                <rect key="frame" x="218" y="219" width="90" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn6:" destination="PC3-45-LXQ" eventType="touchUpInside" id="LDG-2T-eMw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbL-ho-6O9">
+                                <rect key="frame" x="12" y="356" width="84" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn7:" destination="PC3-45-LXQ" eventType="touchUpInside" id="tA4-rb-ghO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXj-S9-ODe">
+                                <rect key="frame" x="111" y="356" width="90" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn8:" destination="PC3-45-LXQ" eventType="touchUpInside" id="yRA-h9-Zri"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfC-cs-MAx">
+                                <rect key="frame" x="219" y="356" width="90" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn9:" destination="PC3-45-LXQ" eventType="touchUpInside" id="Qrh-Rc-gGm"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-QX-4Sg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiY-ls-CFa">
+                                        <rect key="frame" x="23" y="17" width="55" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="返回">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="fanhui:" destination="PC3-45-LXQ" eventType="touchUpInside" id="A7D-7Y-5Rv"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gGt-QL-Yuq">
+                                        <rect key="frame" x="8" y="63" width="304" height="494"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gGt-QL-Yuq" firstAttribute="top" secondItem="LiY-ls-CFa" secondAttribute="bottom" constant="12" id="0EQ-KN-sUM"/>
+                                    <constraint firstAttribute="bottom" secondItem="gGt-QL-Yuq" secondAttribute="bottom" constant="11" id="78N-dt-4xM"/>
+                                    <constraint firstItem="gGt-QL-Yuq" firstAttribute="top" secondItem="LiY-ls-CFa" secondAttribute="bottom" constant="12" id="Kew-Lm-aDF"/>
+                                    <constraint firstAttribute="trailing" secondItem="gGt-QL-Yuq" secondAttribute="trailing" constant="8" id="QjZ-p0-9Ab"/>
+                                    <constraint firstItem="gGt-QL-Yuq" firstAttribute="leading" secondItem="a2q-QX-4Sg" secondAttribute="leading" constant="8" id="WDN-T6-FKL"/>
+                                    <constraint firstItem="LiY-ls-CFa" firstAttribute="top" secondItem="a2q-QX-4Sg" secondAttribute="top" constant="17" id="hgM-aG-IsE"/>
+                                    <constraint firstAttribute="trailing" secondItem="LiY-ls-CFa" secondAttribute="trailing" constant="242" id="kit-O2-J7L"/>
+                                    <constraint firstItem="LiY-ls-CFa" firstAttribute="leading" secondItem="a2q-QX-4Sg" secondAttribute="leading" constant="23" id="xWP-qD-Z1Q"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="a2q-QX-4Sg" secondAttribute="trailing" constant="-16" id="K5E-jc-4Wz"/>
+                            <constraint firstItem="a2q-QX-4Sg" firstAttribute="top" secondItem="2MF-Xw-EPC" secondAttribute="topMargin" id="LBb-iZ-vlu"/>
+                            <constraint firstItem="a2q-QX-4Sg" firstAttribute="bottom" secondItem="2MF-Xw-EPC" secondAttribute="bottomMargin" id="qpM-aO-4Ef"/>
+                            <constraint firstItem="a2q-QX-4Sg" firstAttribute="leading" secondItem="2MF-Xw-EPC" secondAttribute="leadingMargin" constant="-16" id="wPL-jh-pMD"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cn9-2n-P7h"/>
+                    <navigationItem key="navigationItem" title="详情" id="HIH-R2-URe"/>
+                    <connections>
+                        <outlet property="img" destination="gGt-QL-Yuq" id="7Fk-cc-aa3"/>
+                        <outlet property="img1" destination="hhz-NI-DBU" id="0IU-lG-EdY"/>
+                        <outlet property="img2" destination="xAd-4n-QTc" id="Bar-Gw-keU"/>
+                        <outlet property="img3" destination="8fr-oY-C2F" id="DrS-ii-qbs"/>
+                        <outlet property="img4" destination="tnr-J1-WoH" id="sH8-MF-LjC"/>
+                        <outlet property="img5" destination="Gq8-Dt-U2y" id="uhZ-HZ-dLj"/>
+                        <outlet property="img6" destination="G2V-8h-yMd" id="UZY-Vv-ckB"/>
+                        <outlet property="img7" destination="734-U2-spK" id="SKo-P5-71h"/>
+                        <outlet property="img8" destination="SPd-rg-yrc" id="HKy-mX-xbf"/>
+                        <outlet property="img9" destination="D6m-hG-BgJ" id="WXe-hH-GVf"/>
+                        <outlet property="viewhi" destination="a2q-QX-4Sg" id="lSC-57-4kf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p7T-9p-kF0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqg-NN-QZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-748" y="-1811"/>
+            <point key="canvasLocation" x="-542" y="-1728"/>
         </scene>
     </scenes>
     <resources>
-        <image name="AA598767-9260-4DE2-99A1-261082160EBB" width="42" height="45">
+        <image name="CA2B359B-B19F-48C4-8391-4FBEA86CC682" width="42" height="45">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -8867,6 +9058,7 @@ AAACAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAAsQg
         <segue reference="Oas-do-MOp"/>
         <segue reference="A5w-83-lnn"/>
         <segue reference="z9T-58-7PP"/>
+        <segue reference="EhQ-I1-eq4"/>
         <segue reference="GV5-3J-q4j"/>
         <segue reference="64d-NN-AQD"/>
         <segue reference="7Sh-Gb-lvW"/>

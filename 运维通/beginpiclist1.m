@@ -98,7 +98,7 @@
     NSMutableArray *array=[dict2 objectForKey:@"Files"];
     
     if (array.count>0) {
-        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:1]];
+        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:0]];
         NSURL *imgurl=[NSURL URLWithString:img];
         UIImage *imgstr=[[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:imgurl]];
         [cell.btn1 setBackgroundImage:imgstr forState:UIControlStateNormal];
@@ -111,13 +111,13 @@
         [cell.btn2 setBackgroundImage:imgstr forState:UIControlStateNormal];
     }
     if (array.count>2) {
-        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:1]];
+        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:2]];
         NSURL *imgurl=[NSURL URLWithString:img];
         UIImage *imgstr=[[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:imgurl]];
         [cell.btn3 setBackgroundImage:imgstr forState:UIControlStateNormal];
     }
     if (array.count>3) {
-        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:1]];
+        NSString *img=[NSString stringWithFormat:@"%@/%@",urlt,[array objectAtIndex:3]];
         NSURL *imgurl=[NSURL URLWithString:img];
         UIImage *imgstr=[[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:imgurl]];
         [cell.btn4 setBackgroundImage:imgstr forState:UIControlStateNormal];
@@ -184,7 +184,7 @@
     
     NSString *urlStr2 = [NSString stringWithFormat:@"%@/API/YWT_Order.ashx?action=imgviewend&q0=%@&q1=%d",urlt,myString,num];
     
-    NSLog(@"%@",urlStr2);
+    NSLog(@"000000%@",urlStr2);
     self.tableview.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         NSString *str = @"type=focus-c";

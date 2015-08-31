@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface imgdetal : UIViewController
-
+{
+    UIScrollView *_scrollview;
+}
+@property(nonatomic,weak)NSString *strTtile;
+@property(nonatomic,strong)NSString *receiveID;
+@property(nonatomic,strong)NSString *receiveCbscs;
 @end

@@ -24,6 +24,8 @@
 		2844F7041B93218400ADE377 /* CustomerList2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844F7031B93218400ADE377 /* CustomerList2.m */; };
 		2844F70A1B93336500ADE377 /* scus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844F7091B93336500ADE377 /* scus.m */; };
 		2844F75E1B93515E00ADE377 /* imgdetal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844F75D1B93515E00ADE377 /* imgdetal.m */; };
+		2844F7611B935B0D00ADE377 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844F7601B935B0D00ADE377 /* ShowViewController.m */; };
+		2844F7641B935B4500ADE377 /* ZoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844F7631B935B4500ADE377 /* ZoomScrollView.m */; };
 		284A5F5B1B7ECF0E000DF654 /* genxin.m in Sources */ = {isa = PBXBuildFile; fileRef = 284A5F5A1B7ECF0E000DF654 /* genxin.m */; };
 		284B339C1B6FB325001D8A88 /* writedate.m in Sources */ = {isa = PBXBuildFile; fileRef = 284B339B1B6FB325001D8A88 /* writedate.m */; };
 		284B339F1B6FC556001D8A88 /* dianping.m in Sources */ = {isa = PBXBuildFile; fileRef = 284B339E1B6FC556001D8A88 /* dianping.m */; };
@@ -253,6 +255,10 @@
 		2844F7091B93336500ADE377 /* scus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scus.m; sourceTree = "<group>"; };
 		2844F75C1B93515E00ADE377 /* imgdetal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgdetal.h; sourceTree = "<group>"; };
 		2844F75D1B93515E00ADE377 /* imgdetal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imgdetal.m; sourceTree = "<group>"; };
+		2844F75F1B935B0D00ADE377 /* ShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
+		2844F7601B935B0D00ADE377 /* ShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
+		2844F7621B935B4500ADE377 /* ZoomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomScrollView.h; sourceTree = "<group>"; };
+		2844F7631B935B4500ADE377 /* ZoomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomScrollView.m; sourceTree = "<group>"; };
 		284A5F591B7ECF0E000DF654 /* genxin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = genxin.h; sourceTree = "<group>"; };
 		284A5F5A1B7ECF0E000DF654 /* genxin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = genxin.m; sourceTree = "<group>"; };
 		284B339A1B6FB325001D8A88 /* writedate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writedate.h; sourceTree = "<group>"; };
@@ -803,6 +809,10 @@
 				28B9FCCC1B921AF3004D0DFE /* beginpiclist1.m */,
 				2844F75C1B93515E00ADE377 /* imgdetal.h */,
 				2844F75D1B93515E00ADE377 /* imgdetal.m */,
+				2844F75F1B935B0D00ADE377 /* ShowViewController.h */,
+				2844F7601B935B0D00ADE377 /* ShowViewController.m */,
+				2844F7621B935B4500ADE377 /* ZoomScrollView.h */,
+				2844F7631B935B4500ADE377 /* ZoomScrollView.m */,
 			);
 			name = xianchang;
 			sourceTree = "<group>";
@@ -1517,6 +1527,7 @@
 				289E4EE81B7E2A1600C19D13 /* WarehouseAdd.m in Sources */,
 				289E4EEC1B7E2A1600C19D13 /* WarehouseListYWUser.m in Sources */,
 				78B453731B647A6D000C70A7 /* mylist.m in Sources */,
+				2844F7611B935B0D00ADE377 /* ShowViewController.m in Sources */,
 				7860A5571B63BFA60067253C /* MJRefreshFooter.m in Sources */,
 				2844F7041B93218400ADE377 /* CustomerList2.m in Sources */,
 				289E4F0E1B7E2CEC00C19D13 /* SBJsonStreamParser.m in Sources */,
@@ -1560,6 +1571,7 @@
 				282D754C1B8063A10019D78C /* registperson.m in Sources */,
 				289E4F101B7E2CEC00C19D13 /* SBJsonStreamParserAdapter.m in Sources */,
 				78402A641B5B914A00908FA9 /* ordermodel.m in Sources */,
+				2844F7641B935B4500ADE377 /* ZoomScrollView.m in Sources */,
 				289E4F111B7E2CEC00C19D13 /* SBJsonStreamParserState.m in Sources */,
 				78B4536A1B63C848000C70A7 /* robarorderlist.m in Sources */,
 				78B4539D1B653287000C70A7 /* userapplylist.m in Sources */,
